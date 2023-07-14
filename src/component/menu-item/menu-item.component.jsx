@@ -1,9 +1,17 @@
-import React from 'react'
+import React from 'react';
 
-import './menu-item.styles.scss'
+import { useParams, useNavigate } from 'react-router-dom';
 
-const menuitem = ({ title, imageUrl, size }) => (
-    <div className={`${size} menu-item`}>
+
+import './menu-item.styles.scss';
+
+const Menuitem = ({ title, imageUrl, size, linkUrl, match }) =>{
+  // console.log(useParams)
+  const {currentId} = useParams();
+  console.log(currentId)
+  const navigate = useNavigate();
+  return(
+    <div className={`${size} menu-item`} onClick={() => navigate(`${linkUrl}`)} >
         <div className='background-image' style={{backgroundImage: `url(${imageUrl})`}} />
         <div className='content'>
           <div className='title'>{title.toUpperCase()}</div>
@@ -11,5 +19,6 @@ const menuitem = ({ title, imageUrl, size }) => (
         </div>
       </div>
 )
+}
 
-export default menuitem
+export default Menuitem;
