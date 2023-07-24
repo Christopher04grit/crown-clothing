@@ -10,7 +10,7 @@ const config = {
     storageBucket: "crown-db-48f21.appspot.com",
     messagingSenderId: "853958037257",
     appId: "1:853958037257:web:3a129374ed914c990c4dd8"
-  };
+  }; 
 
 firebase.initializeApp(config);
 
