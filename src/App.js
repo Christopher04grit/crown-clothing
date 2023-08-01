@@ -12,19 +12,22 @@ import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 import { setCurrentUser } from './redux/user/user.actions';
 import ProtectedRoute from './component/protected-route/protected-route.component';
 
+
 class App extends React.Component {
+
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    
+    const { setCurrentUser } = this.props;
+
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
         userRef.onSnapshot(snapShot => {
           setCurrentUser({
-              id: snapShot.id,
-              ...snapShot.data()
+            id: snapShot.id,
+            ...snapShot.data()
           });
         });
       }
@@ -33,30 +36,35 @@ class App extends React.Component {
     });
   }
 
+
   componentWillUnmount() {
     this.unsubscribeFromAuth();
   }
 
+
   render() {
     return (
       <div className='App'>
-        <Header />
+        <Header  />
         <Routes>
           <Route  path='/' element={<HomePage />}/>
           <Route  path='/shop' element={<ShopPage />}/>
           <Route
             path='/signin'
             element={
-              <ProtectedRoute>
+              <ProtectedRoute >
                 <SignInAndSignUp/>
               </ProtectedRoute>
             }
+            
           />
         </Routes>
       </div>
     );
   }
 }
+
+
 
 const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))
