@@ -1,6 +1,9 @@
 import React from 'react';
 import {Navigate} from 'react-router-dom';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+
+import { selectCurrentUser } from '../../redux/user/user.selector';
 
 const ProtectedRoute = ({children, currentUser}) => {
     if (currentUser) {
@@ -9,8 +12,8 @@ const ProtectedRoute = ({children, currentUser}) => {
     return children;
 }
 
-const mapStateToProps = state => ({
-    currentUser: state.user.currentUser
+const mapStateToProps = createStructuredSelector({
+    currentUser: selectCurrentUser
   });
   
   export default connect(mapStateToProps)(ProtectedRoute); 

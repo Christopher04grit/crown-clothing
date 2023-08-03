@@ -6,12 +6,14 @@ import './App.css';
 
 import HomePage from './pages/hompage/homepage.component';
 import ShopPage from './pages/shop/shop.component';
-import Header from './component/header/header.component';
 import SignInAndSignUp from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
-import { auth, createUserProfileDocument } from './firebase/firebase.utils'
-import { setCurrentUser } from './redux/user/user.actions';
+import CheckoutPage from './pages/checkout/checkout.component';
+
+import Header from './component/header/header.component';
 import ProtectedRoute from './component/protected-route/protected-route.component';
 
+import { auth, createUserProfileDocument } from './firebase/firebase.utils'
+import { setCurrentUser } from './redux/user/user.actions'; 
 
 class App extends React.Component {
 
@@ -49,6 +51,7 @@ class App extends React.Component {
         <Routes>
           <Route  path='/' element={<HomePage />}/>
           <Route  path='/shop' element={<ShopPage />}/>
+          <Route  path='/checkout' element={<CheckoutPage />}/>
           <Route
             path='/signin'
             element={

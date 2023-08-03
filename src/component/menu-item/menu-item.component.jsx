@@ -5,10 +5,9 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 import './menu-item.styles.scss';
 
-const Menuitem = ({ title, imageUrl, size, linkUrl, match }) =>{
-  // console.log(useParams)
+const Menuitem = ({ title, imageUrl, size, linkUrl }) =>{
   const {currentId} = useParams();
-  console.log(currentId)
+  console.log('!!!!!!LOOOK:',currentId)
   const navigate = useNavigate();
   return(
     <div className={`${size} menu-item`} onClick={() => navigate(`${linkUrl}`)} >
