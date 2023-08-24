@@ -6,8 +6,6 @@ const PaystackCheckoutButton = ({ price }) => {
     const amount = price * 100;
     console.log(price)
     const [email, setEmail] = useState("")
-    // const [name, setName] = useState("")
-    // const [phone, setPhone] = useState("")
   
     const componentProps = {
       email: 'mike1234@email.com',
