@@ -12,9 +12,6 @@ const CollectionPage = () => {
   const collection = useSelector(selectCollection(collectionId));
   const {title, items} = collection;
 
-  console.log("useSelector:",collection)
-  console.log("check:",collectionId)
-
   return (
     <div className='collection-page'>
       <h2 className='title'>{title}</h2> 

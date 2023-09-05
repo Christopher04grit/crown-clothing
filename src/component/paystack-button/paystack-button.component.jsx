@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { PaystackButton } from "react-paystack";
 
 const PaystackCheckoutButton = ({ price }) => {
     const publicKey = "pk_test_828062d1ddc745e92a3517ffe3a6ead2d87ade1a"
     const amount = price * 100;
     console.log(price)
-    const [email, setEmail] = useState("")
   
     const componentProps = {
       email: 'mike1234@email.com',
